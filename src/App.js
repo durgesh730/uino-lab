@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from "./component/Main"
+import Register from './component/Register';
+import Registered from './component/Registered';
+import Pforget from './component/Pforget';
+import Nav from './component/Nav';
+
+import {
+  Route,
+  BrowserRouter,
+  Routes
+} from "react-router-dom";
+import Logged from './component/Logged';
+import Everification from './component/Everification';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Nav/>
+        <Routes>
+          <Route path='/' element={<Register/>}></Route>
+          <Route path='/login' element={<Main/>}></Route>
+          <Route path='/logged' element={<Logged/>}></Route>
+          <Route path='/registered' element={<Registered/>}></Route>
+          <Route path='/forget' element={<Pforget/>}></Route>
+          <Route path='/everification' element={<Everification/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
